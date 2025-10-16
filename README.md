@@ -1,16 +1,84 @@
-# frontend
+# Notes App - BLoC Architecture
 
-A new Flutter project.
+A modern Flutter notes application implementing the **BLoC (Business Logic Component)** pattern with dual storage support.
 
-## Getting Started
+## 🎯 Features
 
-This project is a starting point for a Flutter application.
+- **BLoC Architecture** - Clean, maintainable code structure
+- **Dual Storage** - Switch between Local Storage and API
+- **Full CRUD** - Create, Read, Update, Delete notes
+- **Bulk Operations** - Delete multiple notes at once
+- **Offline Support** - Works without internet
+- **Modern UI** - Material 3 design
 
-A few resources to get you started if this is your first Flutter project:
+## 🏗️ Architecture
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+This app follows **BLoC Pattern** best practices:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **Bloc** - Business logic and state management
+- **Repository** - Data abstraction layer
+- **Services** - Local storage & HTTP API
+- **Models** - Type-safe data models
+- **Screens** - Presentation layer
+
+See [ARCHITECTURE.md](ARCHITECTURE.md) for detailed documentation.
+
+## 🚀 Quick Start
+
+```bash
+# Get dependencies
+flutter pub get
+
+# Run the app
+flutter run
+
+# Build for Android
+flutter build apk
+```
+
+## 📦 Storage Options
+
+### Local Storage (Default)
+- Data stored on device using SharedPreferences
+- No network required
+- Perfect for offline use
+
+### API Storage
+- Connects to REST API at `http://localhost:8080`
+- Syncs data across devices
+- Requires backend server
+
+**Switch storage:** Tap the storage icon in the app bar (📦/☁️)
+
+## 🔧 Backend API (Optional)
+
+For API storage, run a backend with these endpoints:
+- `GET /notes` - Fetch all notes
+- `POST /notes` - Create note
+- `PATCH /notes/:id` - Update note
+- `DELETE /notes/:id` - Delete note
+
+## 📱 How to Use
+
+1. **Add Note** - Tap the ➕ button
+2. **View Note** - Tap any note in the list
+3. **Edit Note** - Open note → tap ✏️
+4. **Delete Note** - Open note → tap 🗑️
+5. **Bulk Delete** - Long-press to select multiple notes
+
+## 🛠️ Tech Stack
+
+- Flutter SDK
+- flutter_bloc - State management
+- equatable - Value equality
+- shared_preferences - Local storage
+- http - API calls
+
+## 📄 License
+
+MIT License
+
+---
+
+For detailed architecture documentation, see [ARCHITECTURE.md](ARCHITECTURE.md)
+

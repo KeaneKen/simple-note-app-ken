@@ -9,11 +9,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:frontend/main.dart';
+import 'package:frontend/repository/notes_repository.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  // Build our app and trigger a frame. Initialize repository first.
+  final repository = await NotesRepository.create();
+  await tester.pumpWidget(MyApp(repository: repository));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
